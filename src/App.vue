@@ -42,6 +42,20 @@
                         </div>
                         <button class="modal-close" @click="closeHelp"></button>
                     </div>
+
+                    <div class="modal" id="result">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <article class="message">
+                                <div class="message-body">
+                                    <p>Wrong Sequence</p>
+                                    <p>Score: {{score}}</p>
+                                </div>
+                            </article>
+                        </div>
+                        <button class="modal-close" @click="closeResult"></button>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -115,8 +129,7 @@
                         }
                         else {
                             //TODO: End game
-                            alert("end");
-                            this.reset();
+                            this.showResult();
                             return;
                         }
                     }
@@ -169,6 +182,13 @@
             },
             closeHelp() {
                 document.getElementById("help").classList.remove("is-active");
+            },
+            showResult() {
+                document.getElementById("result").classList.add("is-active");
+            },
+            closeResult() {
+                document.getElementById("result").classList.remove("is-active");
+                this.reset();
             }
         }
     }
