@@ -30,6 +30,23 @@
                     <a class="button is-dark is-inverted is-outlined has-text-centered is-large" @click="startGame">Start</a>
                     <a class="button is-dark is-inverted is-outlined has-text-centered is-large" @click="showHelp">Help</a>
                     <a class="button is-dark is-inverted is-outlined has-text-centered is-large">Score: {{score}}</a>
+
+                    <div class="modal" id="help">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <article class="message">
+                                <div class="message-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus
+                                    mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit
+                                    amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a>
+                                    efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu
+                                    et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque.
+                                    Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+                                </div>
+                            </article>
+                        </div>
+                        <button class="modal-close" @click="closeHelp"></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -117,7 +134,7 @@
             },
             showHelp() {
                 //TODO: Implement show help
-                
+                document.getElementById("help").classList.add("is-active")
             },
             resetPadColor(index) {
                 let element = document.getElementById(this.pads[index].id);
@@ -155,6 +172,9 @@
                 this.numbers = [];
                 this.currentNumberIndex = 0;
                 this.padsDisabled = true;
+            },
+            closeHelp() {
+                document.getElementById("help").classList.remove("is-active");
             }
         }
     }
@@ -166,6 +186,7 @@
     @import "css/bulma/layout/_all.sass";
     @import "css/bulma/elements/_all.sass";
     @import "css/bulma/grid/_all.sass";
+    @import "css/bulma/components/_all.sass";
 
     $green-color: rgb(35, 209, 96);
     $red-color: rgb(255, 56, 96);
