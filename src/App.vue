@@ -103,6 +103,8 @@
                 padsDisabled: true,
                 inputDisabled: false,
                 currentNumberIndex: 0
+                currentNumberIndex: 0,
+                audios: []
             }
         },
         methods: {
@@ -201,6 +203,13 @@
             },
             handleKeyUp(e) {
                 console.log(e.keyCode);
+            },
+            playAudio(index) {
+                this.audios.push(new Audio('simonSound1.mp3'));
+                this.audios.push(new Audio('simonSound2.mp3'));
+                this.audios.push(new Audio('simonSound3.mp3'));
+                this.audios.push(new Audio('simonSound4.mp3'));
+                this.audios[index].play();
             }
         }
     }
