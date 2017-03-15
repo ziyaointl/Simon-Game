@@ -65,6 +65,7 @@
                     }
                 ],
                 numbers: [],
+                padsDisabled: true,
                 inputDisabled: false,
                 currentNumberIndex: 0
             }
@@ -72,6 +73,7 @@
         methods: {
             startGame() {
                 if (!this.inputDisabled) {
+                    this.reset();
                     this.runLoop();
                 }
             },
@@ -94,7 +96,7 @@
                 }
             },
             padClicked(index) {
-                if (!this.inputDisabled) {
+                if (!this.padsDisabled) {
                     if (this.currentNumberIndex < this.numbers.length) {
                         if (index === this.numbers[this.currentNumberIndex]) {
                             this.currentNumberIndex++;
@@ -125,7 +127,8 @@
             runLoop() {
                 let vm = this;
                 vm.numbers.push(vm.getRandomInt(0, 4));
-                vm.inputDisabled = true;
+                vm.inputDisabled = false;
+                vm.padsDisabled = true;
 
                 vm.timeoutLoop(function () {
                     if (vm.currentNumberIndex < vm.numbers.length) {
@@ -140,13 +143,15 @@
                     else {
                         vm.currentNumberIndex = 0;
                         vm.inputDisabled = false;
+                        vm.padsDisabled = false;
                     }
                 }, vm.numbers.length + 1, 1500);
             },
-            resetGame() {
+            reset() {
                 this.score = 0;
                 this.numbers = [];
                 this.currentNumberIndex = 0;
+                this.padsDisabled = true;
             }
         }
     }
