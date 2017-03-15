@@ -4,18 +4,18 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <div class="columns">
-                        <div class="column is-3 is-offset-3">
+                        <div class="column is-3-desktop is-4-mobile is-offset-3-desktop is-offset-2-mobile">
                             <div class="notification is-success active-green" id="green-button" @click="padClicked(0)">
 
                             </div>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-3-desktop is-4-mobile">
                             <div class="notification is-danger active-red" id="red-button" @click="padClicked(1)">
 
                             </div>
                         </div>
                     </div>
-                    <div class="columns">
+                    <div class="columns is-mobile">
                         <div class="column is-3 is-offset-3">
                             <div class="notification is-warning active-yellow" id="yellow-button" @click="padClicked(2)">
 
@@ -36,7 +36,7 @@
                         <div class="modal-content">
                             <article class="message">
                                 <div class="message-body">
-                                    Simon is a game that tests your memory skills. Press start and repeat the series.
+                                    Simon is a game that tests your memory skills. To play, press start and repeat the series.
                                 </div>
                             </article>
                         </div>
@@ -102,7 +102,6 @@
                 numbers: [],
                 padsDisabled: true,
                 inputDisabled: false,
-                currentNumberIndex: 0
                 currentNumberIndex: 0,
                 audios: []
             }
@@ -134,12 +133,12 @@
             },
             padClicked(index) {
                 if (!this.padsDisabled) {
+                    this.playAudio(index);
                     if (this.currentNumberIndex < this.numbers.length) {
                         if (index === this.numbers[this.currentNumberIndex]) {
                             this.currentNumberIndex++;
                         }
                         else {
-                            //TODO: End game
                             this.showResult();
                             return;
                         }
@@ -172,9 +171,10 @@
                     if (vm.currentNumberIndex < vm.numbers.length) {
                         let index = vm.numbers[vm.currentNumberIndex];
                         vm.lightenPadColor(index);
+                        vm.playAudio(index);
                         setTimeout(function () {
                             vm.resetPadColor(index);
-                        }, 1000);
+                        }, 500);
                         vm.currentNumberIndex++;
                         console.log(vm.currentNumberIndex);
                     }
@@ -183,7 +183,7 @@
                         vm.inputDisabled = false;
                         vm.padsDisabled = false;
                     }
-                }, vm.numbers.length, 1500);
+                }, vm.numbers.length, 1000);
             },
             reset() {
                 this.score = 0;
@@ -230,6 +230,12 @@
 
     #green-button, #red-button, #yellow-button, #blue-button {
         height: 30vh;
+    }
+
+    @media (max-width: 768px) {
+        #green-button, #red-button, #yellow-button, #blue-button {
+            height: 20vh;
+        }
     }
 
     #green-button:active, .active-green-button {
