@@ -65,6 +65,15 @@
 <script>
     export default {
         name: 'app',
+        created() {
+            let vm = this;
+            window.addEventListener('keyup', function (e) {
+                if (e.keyCode === 27) {
+                    vm.closeResult();
+                    vm.closeHelp();
+                }
+            });
+        },
         data() {
             return {
                 score: 0,
@@ -167,12 +176,12 @@
                         vm.currentNumberIndex++;
                         console.log(vm.currentNumberIndex);
                     }
-                    else {
+                    if (vm.currentNumberIndex === vm.numbers.length) {
                         vm.currentNumberIndex = 0;
                         vm.inputDisabled = false;
                         vm.padsDisabled = false;
                     }
-                }, vm.numbers.length + 1, 1500);
+                }, vm.numbers.length, 1500);
             },
             reset() {
                 this.score = 0;
@@ -189,6 +198,9 @@
             closeResult() {
                 document.getElementById("result").classList.remove("is-active");
                 this.reset();
+            },
+            handleKeyUp(e) {
+                console.log(e.keyCode);
             }
         }
     }
