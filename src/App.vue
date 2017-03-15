@@ -3,25 +3,25 @@
         <section class="hero is-fullheight is-bold is-dark">
             <div class="hero-body">
                 <div class="container has-text-centered">
-                    <div class="columns">
-                        <div class="column is-3-desktop is-4-mobile is-offset-3-desktop is-offset-2-mobile">
+                    <div class="columns is-mobile">
+                        <div class="column is-3-desktop is-4-mobile is-offset-3-desktop is-offset-2-mobile is-4-tablet is-offset-2-tablet">
                             <div class="notification is-success active-green" id="green-button" @click="padClicked(0)">
 
                             </div>
                         </div>
-                        <div class="column is-3-desktop is-4-mobile">
+                        <div class="column is-3-desktop is-4-mobile is-4-tablet">
                             <div class="notification is-danger active-red" id="red-button" @click="padClicked(1)">
 
                             </div>
                         </div>
                     </div>
                     <div class="columns is-mobile">
-                        <div class="column is-3 is-offset-3">
+                        <div class="column is-3-desktop is-4-mobile is-offset-3-desktop is-offset-2-mobile is-4-tablet is-offset-2-tablet">
                             <div class="notification is-warning active-yellow" id="yellow-button" @click="padClicked(2)">
 
                             </div>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-3-desktop is-4-mobile is-4-tablet">
                             <div class="notification is-info active-blue" id="blue-button" @click="padClicked(3)">
 
                             </div>
