@@ -27,9 +27,9 @@
                             </div>
                         </div>
                     </div>
-                    <a class="button is-dark is-inverted is-outlined has-text-centered is-large" @click="startGame">Start</a>
-                    <a class="button is-dark is-inverted is-outlined has-text-centered is-large" @click="showHelp">Help</a>
-                    <a class="button is-dark is-inverted is-outlined has-text-centered is-large">Score: {{score}}</a>
+                    <a class="button is-dark is-inverted is-outlined has-text-centered is-large" @click="startGame">开始</a>
+                    <a class="button is-dark is-inverted is-outlined has-text-centered is-large" @click="showHelp">帮助</a>
+                    <a class="button is-dark is-inverted is-outlined has-text-centered is-large">得分: {{score}}</a>
 
                     <div class="modal" id="help">
                         <div class="modal-background"></div>
@@ -49,7 +49,7 @@
                             <article class="message">
                                 <div class="message-body">
                                     <p>Wrong Sequence</p>
-                                    <p>Score: {{score}}</p>
+                                    <p>得分: {{score}}</p>
                                 </div>
                             </article>
                         </div>
