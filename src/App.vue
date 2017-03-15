@@ -92,18 +92,6 @@
                         }
                     }, vm.numbers.length + 1, 1500);
                 }
-
-
-//                setTimeout(function () {
-//                    //Add one more element to the array
-//                    vm.numbers.push(vm.getRandomInt(0, 3));
-//
-//                    //Loop through the array, displaying the order of pad presses
-//                    vm.numbers.forEach(function (num) {
-//                        vm.activatePad(num);
-//                    });
-//                }, 1000)
-
             },
             shadeRGBColor(color, percent) {
                 let f = color.split(","), t = percent < 0 ? 0 : 255, p = percent < 0 ? percent * -1 : percent, R = parseInt(f[0].slice(4)), G = parseInt(f[1]), B = parseInt(f[2]);
