@@ -5,24 +5,24 @@
                 <div class="container has-text-centered">
                     <div class="columns">
                         <div class="column is-3 is-offset-3">
-                            <div class="notification is-success active-green" id="green-button">
+                            <div class="notification is-success active-green" id="green-button" @click="padClicked(0)">
 
                             </div>
                         </div>
                         <div class="column is-3">
-                            <div class="notification is-danger active-red" id="red-button">
+                            <div class="notification is-danger active-red" id="red-button" @click="padClicked(1)">
 
                             </div>
                         </div>
                     </div>
                     <div class="columns">
                         <div class="column is-3 is-offset-3">
-                            <div class="notification is-warning active-yellow" id="yellow-button">
+                            <div class="notification is-warning active-yellow" id="yellow-button" @click="padClicked(2)">
 
                             </div>
                         </div>
                         <div class="column is-3">
-                            <div class="notification is-info active-blue" id="blue-button">
+                            <div class="notification is-info active-blue" id="blue-button" @click="padClicked(3)">
 
                             </div>
                         </div>
@@ -84,9 +84,6 @@
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max - min)) + min;
             },
-            activatePad(id) {
-
-            },
             timeoutLoop(fn, n, delay) {
                 let vm = this;
                 if (n > 0) {
@@ -97,7 +94,21 @@
                 }
             },
             padClicked(index) {
-
+                if (!this.inputDisabled) {
+                    if (this.currentNumberIndex < this.numbers.length) {
+                        if (index === this.numbers[this.currentNumberIndex]) {
+                            this.currentNumberIndex++;
+                        }
+                        else {
+                            //TODO: End game
+                            alert("end");
+                        }
+                    }
+                    if (this.currentNumberIndex === this.numbers.length) {
+                        this.currentNumberIndex = 0;
+                        this.runLoop();
+                    }
+                }
             },
             showHelp() {
 
