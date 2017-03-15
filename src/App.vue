@@ -102,6 +102,7 @@
                         else {
                             //TODO: End game
                             alert("end");
+                            this.reset();
                         }
                     }
                     if (this.currentNumberIndex === this.numbers.length) {
@@ -141,7 +142,11 @@
                         vm.inputDisabled = false;
                     }
                 }, vm.numbers.length + 1, 1500);
-
+            },
+            resetGame() {
+                this.score = 0;
+                this.numbers = [];
+                this.currentNumberIndex = 0;
             }
         }
     }
