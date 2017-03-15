@@ -105,16 +105,19 @@
                             //TODO: End game
                             alert("end");
                             this.reset();
+                            return;
                         }
                     }
                     if (this.currentNumberIndex === this.numbers.length) {
+                        ++this.score;
                         this.currentNumberIndex = 0;
                         this.runLoop();
                     }
                 }
             },
             showHelp() {
-
+                //TODO: Implement show help
+                
             },
             resetPadColor(index) {
                 let element = document.getElementById(this.pads[index].id);
