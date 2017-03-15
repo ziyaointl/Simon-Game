@@ -72,25 +72,7 @@
         methods: {
             startGame() {
                 if (!this.inputDisabled) {
-                    let vm = this;
-
-                    vm.numbers.push(vm.getRandomInt(0, 4));
-                    vm.inputDisabled = true;
-                    vm.timeoutLoop(function () {
-                        if (vm.currentNumberIndex < vm.numbers.length) {
-                            let index = vm.numbers[vm.currentNumberIndex];
-                            vm.lightenPadColor(index);
-                            setTimeout(function () {
-                                vm.resetPadColor(index);
-                            }, 1000);
-                            vm.currentNumberIndex++;
-                            console.log(vm.currentNumberIndex);
-                        }
-                        else {
-                            vm.currentNumberIndex = 0;
-                            vm.inputDisabled = false;
-                        }
-                    }, vm.numbers.length + 1, 1500);
+                    this.runLoop();
                 }
             },
             shadeRGBColor(color, percent) {
@@ -102,7 +84,7 @@
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max - min)) + min;
             },
-            activatePad() {
+            activatePad(id) {
 
             },
             timeoutLoop(fn, n, delay) {
@@ -114,7 +96,7 @@
                     }, delay);
                 }
             },
-            padClicked(id) {
+            padClicked(index) {
 
             },
             showHelp() {
@@ -127,6 +109,28 @@
             lightenPadColor(index) {
                 let element = document.getElementById(this.pads[index].id);
                 element.style.backgroundColor = this.pads[index].lighten;
+            },
+            runLoop() {
+                let vm = this;
+                vm.numbers.push(vm.getRandomInt(0, 4));
+                vm.inputDisabled = true;
+
+                vm.timeoutLoop(function () {
+                    if (vm.currentNumberIndex < vm.numbers.length) {
+                        let index = vm.numbers[vm.currentNumberIndex];
+                        vm.lightenPadColor(index);
+                        setTimeout(function () {
+                            vm.resetPadColor(index);
+                        }, 1000);
+                        vm.currentNumberIndex++;
+                        console.log(vm.currentNumberIndex);
+                    }
+                    else {
+                        vm.currentNumberIndex = 0;
+                        vm.inputDisabled = false;
+                    }
+                }, vm.numbers.length + 1, 1500);
+
             }
         }
     }
