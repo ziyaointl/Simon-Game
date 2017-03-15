@@ -44,24 +44,24 @@
                 score: 0,
                 pads: [
                     {
-                        id: "red-button",
-                        color: "rgb(255, 56, 96)",
-                        lighten: "#ff6b89"
-                    },
-                    {
-                        id:"blue-button",
-                        color: "rgb(50, 115, 220)",
-                        lighten: "#5e91e3"
-                    },
-                    {
                         id:"green-button",
                         color: "rgb(35, 209, 96)",
                         lighten: "#47e07d"
                     },
                     {
+                        id: "red-button",
+                        color: "rgb(255, 56, 96)",
+                        lighten: "#ff6b89"
+                    },
+                    {
                         id:"yellow-button",
                         color: "rgb(255, 221, 87)",
                         lighten: "#ffe78a"
+                    },
+                    {
+                        id:"blue-button",
+                        color: "rgb(50, 115, 220)",
+                        lighten: "#5e91e3"
                     }
                 ],
                 numbers: [],
