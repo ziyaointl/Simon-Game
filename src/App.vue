@@ -36,7 +36,7 @@
                         <div class="modal-content">
                             <article class="message">
                                 <div class="message-body">
-                                    Simon is a game that tests your memory skills. To play, press start and repeat the series.
+                                    Simon是一个挑战记忆力的游戏。请尝试将生成的序列重复出来。
                                 </div>
                             </article>
                         </div>
@@ -48,7 +48,7 @@
                         <div class="modal-content">
                             <article class="message">
                                 <div class="message-body">
-                                    <p>Wrong Sequence</p>
+                                    <p>错误的序列</p>
                                     <p>得分: {{score}}</p>
                                 </div>
                             </article>
