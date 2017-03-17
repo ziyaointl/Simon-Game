@@ -5,24 +5,24 @@
                 <div class="container has-text-centered">
                     <div class="columns is-mobile">
                         <div class="column is-3-desktop is-4-mobile is-offset-3-desktop is-offset-2-mobile is-4-tablet is-offset-2-tablet">
-                            <div class="notification is-success active-green" id="green-button" @click="padClicked(0)">
+                            <div class="notification is-success" id="green-button" @click="padClicked(0)">
 
                             </div>
                         </div>
                         <div class="column is-3-desktop is-4-mobile is-4-tablet">
-                            <div class="notification is-danger active-red" id="red-button" @click="padClicked(1)">
+                            <div class="notification is-danger" id="red-button" @click="padClicked(1)">
 
                             </div>
                         </div>
                     </div>
                     <div class="columns is-mobile">
                         <div class="column is-3-desktop is-4-mobile is-offset-3-desktop is-offset-2-mobile is-4-tablet is-offset-2-tablet">
-                            <div class="notification is-warning active-yellow" id="yellow-button" @click="padClicked(2)">
+                            <div class="notification is-warning" id="yellow-button" @click="padClicked(2)">
 
                             </div>
                         </div>
                         <div class="column is-3-desktop is-4-mobile is-4-tablet">
-                            <div class="notification is-info active-blue" id="blue-button" @click="padClicked(3)">
+                            <div class="notification is-info" id="blue-button" @click="padClicked(3)">
 
                             </div>
                         </div>
@@ -238,16 +238,16 @@
         }
     }
 
-    #green-button:active, .active-green-button {
+    #green-button:active{
         background-color: lighten($green-color, 10%);
     }
-    #blue-button:active, .active-blue-button {
+    #blue-button:active {
         background-color: lighten($blue-color, 10%);
     }
-    #red-button:active, .active-red-button {
+    #red-button:active {
         background-color: lighten($red-color, 10%);
     }
-    #yellow-button:active, .active-yellow-button {
+    #yellow-button:active {
         background-color: lighten($yellow-color, 10%);
     }
 
